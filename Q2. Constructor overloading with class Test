@@ -1,0 +1,72 @@
+/*Q2. Develop a Java application to demonstrate constructor overloading using a class named Test.
+Class: Test
+Create a class named Test with the following specifications:
+Instance Variables:
+• private int i — stores the first integer value.
+• private int j — stores the second integer value.
+Constructors:
+• Test() — initializes both i and j to 0.
+• Test(int i) — initializes i with the given value and j to 0.
+• Test(int i, int j) — initializes both instance variables with the given values.
+Method:
+• void display() — displays the values of i and j on separate lines in the following format:
+Value of i: <i>
+Value of j: <j>
+The Main class should perform the following operations in order:
+1. Create an object named obj! using the default constructor and display its values.
+2. Read an integer and create an object named obj2 using the single-parameter constructor. Display its values.
+3. Read two integers and create an object named 0b73 using the two-parameter constructor. Display its values.
+Input Format:
+• The first line contains an integer for 0bj2's instance variable 7.
+• The second line contains two space-separated integers for 0b73's instance variables 7 and 7.
+Output Format:
+Display the values of and 7 for each object, in the following order:
+• First, display the values for obj1.
+• Next, display the values for 0bj72.
+• Finally, display the values for 0b73.
+For each object, display
+Value of i: <i>
+Value of j: <j>
+*/
+import java.util.Scanner;
+ 
+class Test {
+    private int i;
+    private int j;
+ 
+    Test() {
+        i = 0;
+        j = 0;
+    }
+ 
+    Test(int i) {
+        this.i = i;
+        this.j = 0;
+    }
+ 
+    Test(int i, int j) {
+        this.i = i;
+        this.j = j;
+    }
+ 
+    void display() {
+        System.out.println("Value of i: " + i);
+        System.out.println("Value of j: " + j);
+    }
+}
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Test obj1 = new Test();
+        obj1.display();
+        int a = sc.nextInt();
+        Test obj2 = new Test(a);
+        obj2.display();
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        Test obj3 = new Test(x, y);
+        obj3.display();
+        sc.close();
+    }
+}
