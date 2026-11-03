@@ -1,0 +1,61 @@
+/*Q1. Develop a text-processing application using a Java interface and two implementation classes to retrieve the first and last characters of a
+string.
+Interface: GetCharacter
+Create an interface named GetCharacter that declares the following method:
+• void displayChar(String inputString, int position) — retrieves and displays a character from the given string.
+Class 1: FirstCharacter
+Create a class named FirstCharacter that implements the GetCharacter interface.
+Override displayChar() with the following behavior:
+• Retrieve and display the first character of the input string in the below format:
+First Character:
+Class 2: LastCharacter
+Create a class named LastCharacter that implements the GetCharacter interface.
+Override displayChar() with the following behavior:
+• Retrieve and display the last character of the input string in the below format:
+Last Character:
+The position parameter is part of the required method signature but is not used by either implementation.
+The TextProcessing class should read a string, create objects of FirstCharacter and LastCharacter using GetCharacter references, and invoke
+displayChar() on both objects.
+Input Format:
+• The first line contains a non-empty string.
+• The string may contain letters, digits, spaces, and punctuation marks.
+• Standard Java char characters are supported. Unicode characters represented by a single UTF-16 code unit can be processed;
+supplementary Unicode characters represented by surrogate pairs are not treated as a single character.
+Output Format:
+• Display the first character on the first line, in the below format:
+First Character:
+• Display the last character on the second line, in the below format:
+Last Character:
+*/
+import java.util.Scanner;
+ 
+interface GetCharacter {
+    void displayChar(String inputString, int position);
+}
+ 
+class FirstCharacter implements GetCharacter {
+    @Override
+    public void displayChar(String inputString, int position) {
+        System.out.println("First Character: " + inputString.charAt(0));
+    }
+}
+ 
+class LastCharacter implements GetCharacter {
+    @Override
+    public void displayChar(String inputString, int position) {
+        int last = inputString.length() - 1;
+        System.out.println("Last Character: " + inputString.charAt(last));
+    }
+}
+ 
+public class TextProcessing {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        GetCharacter first = new FirstCharacter();   // interface reference
+        GetCharacter last = new LastCharacter();
+        first.displayChar(s, 0);
+        last.displayChar(s, s.length() - 1);
+        sc.close();
+    }
+}
